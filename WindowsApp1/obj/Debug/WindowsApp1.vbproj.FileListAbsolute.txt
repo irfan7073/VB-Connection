@@ -1,0 +1,14 @@
+C:\vbconnection\WindowsApp1\WindowsApp1\bin\Debug\vbdatabase.mdf
+C:\vbconnection\WindowsApp1\WindowsApp1\bin\Debug\vbdatabase_log.ldf
+C:\vbconnection\WindowsApp1\WindowsApp1\bin\Debug\WindowsApp1.exe.config
+C:\vbconnection\WindowsApp1\WindowsApp1\bin\Debug\WindowsApp1.exe
+C:\vbconnection\WindowsApp1\WindowsApp1\bin\Debug\WindowsApp1.pdb
+C:\vbconnection\WindowsApp1\WindowsApp1\bin\Debug\WindowsApp1.xml
+C:\vbconnection\WindowsApp1\WindowsApp1\obj\Debug\WindowsApp1.vbprojAssemblyReference.cache
+C:\vbconnection\WindowsApp1\WindowsApp1\obj\Debug\WindowsApp1.Form1.resources
+C:\vbconnection\WindowsApp1\WindowsApp1\obj\Debug\WindowsApp1.Resources.resources
+C:\vbconnection\WindowsApp1\WindowsApp1\obj\Debug\WindowsApp1.vbproj.GenerateResource.cache
+C:\vbconnection\WindowsApp1\WindowsApp1\obj\Debug\WindowsApp1.vbproj.CoreCompileInputs.cache
+C:\vbconnection\WindowsApp1\WindowsApp1\obj\Debug\WindowsApp1.exe
+C:\vbconnection\WindowsApp1\WindowsApp1\obj\Debug\WindowsApp1.xml
+C:\vbconnection\WindowsApp1\WindowsApp1\obj\Debug\WindowsApp1.pdb
