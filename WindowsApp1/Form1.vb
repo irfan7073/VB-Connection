@@ -6,20 +6,55 @@ Public Class Form1
 
     Dim i As Integer
 
+    Public Sub New()
 
+        ' This call is required by the designer.
+        InitializeComponent()
 
+        ' Add any initialization after the InitializeComponent() call.
+
+    End Sub
 
     Private Sub Insert_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
-        cmd = con.CreateCommand()
-        cmd.CommandType = CommandType.Text
-        cmd.CommandText = "Insert into table1 values('" + TextBox1.Text + "','" + TextBox2.Text + "')"
-        cmd.ExecuteNonQuery()
+        Dim para(1) As SqlParameter
+        para(0) = New SqlParameter("@name", SqlDbType.VarChar)
+        para(0).Value = TextBox1.Text
 
-        dis_data()
+        para(1) = New SqlParameter("@city", SqlDbType.VarChar)
+        para(1).Value = TextBox2.Text
 
-        TextBox1.Text = ""
-        TextBox2.Text = ""
+        Dim com As New SqlCommand()
+        com.Connection = con
+        com.CommandType = CommandType.StoredProcedure
+        com.CommandText = "mamu"
+        com.Parameters.AddRange(para)
+        'con.Open()
+
+        com.ExecuteNonQuery()
+
+        'con.Close()
+
+
+
+
+
+
+        'cmd = con.CreateCommand()
+        'cmd.CommandType = CommandType.StoredProcedure
+        'cmd.CommandText = "Insert into table1 values('" + TextBox1.Text + "','" + TextBox2.Text + "')"
+        'cmd.ExecuteNonQuery()
+
+        'dis_data()
+
+        'TextBox1.Text = ""
+        'TextBox2.Text = ""
+
+
+
+        'Dim aa As New SqlDataAdapter("Insert", con)
+        'aa.SelectCommand.CommandType = CommandType.StoredProcedure
+        'aa.SelectCommand.Parameters.Add("").va
 
 
         MessageBox.Show("Record Inserted Successfully")
@@ -30,7 +65,7 @@ Public Class Form1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        con.ConnectionString = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\vbconnection\WindowsApp1\WindowsApp1\vbdatabase.mdf;Integrated Security=True"
+        con.ConnectionString = "Server = DESKTOP-EES6UNB\SMSQLSERVER; Database = StdData; Integrated Security = True"
         If con.State = ConnectionState.Open Then
             con.Close()
         End If
@@ -44,7 +79,7 @@ Public Class Form1
 
         cmd = con.CreateCommand()
         cmd.CommandType = CommandType.Text
-        cmd.CommandText = "select * from table1"
+        cmd.CommandText = "select * from Student"
         cmd.ExecuteNonQuery()
         Dim dt As New DataTable()
         Dim da As New SqlDataAdapter(cmd)
@@ -67,7 +102,7 @@ Public Class Form1
 
         cmd = con.CreateCommand()
         cmd.CommandType = CommandType.Text
-        cmd.CommandText = "select * from table1 where id=" & i & ""
+        cmd.CommandText = "select * from Student where id=" & i & ""
         cmd.ExecuteNonQuery()
         Dim dt As New DataTable()
         Dim da As New SqlDataAdapter(cmd)
@@ -91,10 +126,29 @@ Public Class Form1
         End If
         con.Open()
 
-        cmd = con.CreateCommand()
-        cmd.CommandType = CommandType.Text
-        cmd.CommandText = "Update table1 set name='" + TextBox1.Text + "',city='" + TextBox2.Text + "' where id=" & i & ""
-        cmd.ExecuteNonQuery()
+        'cmd = con.CreateCommand()
+        'cmd.CommandType = CommandType.Text
+        'cmd.CommandText = "Update table1 set name='" + TextBox1.Text + "',city='" + TextBox2.Text + "' where id=" & i & ""
+        'cmd.ExecuteNonQuery()
+
+        Dim para(2) As SqlParameter
+        para(0) = New SqlParameter("@id", SqlDbType.VarChar)
+        para(0).Value = i
+
+        para(1) = New SqlParameter("@name", SqlDbType.VarChar)
+        para(1).Value = TextBox1.Text
+
+        para(2) = New SqlParameter("@city", SqlDbType.VarChar)
+        para(2).Value = TextBox2.Text
+
+        Dim com As New SqlCommand()
+        com.Connection = con
+        com.CommandType = CommandType.StoredProcedure
+        com.CommandText = "update"
+        com.Parameters.AddRange(para)
+        'con.Open()
+
+        com.ExecuteNonQuery()
 
         dis_data()
 
@@ -109,10 +163,26 @@ Public Class Form1
         End If
         con.Open()
 
-        cmd = con.CreateCommand()
-        cmd.CommandType = CommandType.Text
-        cmd.CommandText = "Delete from table1 where name='" + TextBox1.Text + "'"
-        cmd.ExecuteNonQuery()
+        'cmd = con.CreateCommand()
+        'cmd.CommandType = CommandType.Text
+        'cmd.CommandText = "Delete from table1 where name='" + TextBox1.Text + "'"
+        'cmd.ExecuteNonQuery()
+
+        Dim para(0) As SqlParameter
+
+        para(0) = New SqlParameter("@name", SqlDbType.VarChar)
+        para(0).Value = TextBox1.Text
+
+
+
+        Dim com As New SqlCommand()
+        com.Connection = con
+        com.CommandType = CommandType.StoredProcedure
+        com.CommandText = "delete"
+        com.Parameters.AddRange(para)
+        'con.Open()
+
+        com.ExecuteNonQuery()
 
         dis_data()
 
